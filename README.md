@@ -21,13 +21,11 @@ Easily edit multiline strings that need to be encoded as single-line strings (fo
 ```
 git clone <this repository>
 cd <this directory>
-npm install
-code .
+bun install
 ```
 
-2. Run `npm run compile`.
-3. Press `F5` to launch a development window.
-4. You can refresh the development window (from within the development window) with `Cmd + Shift + P` -> `Developer: Reload Window`.
+2. Run the VS Code command `Debug: Start Debugging` on `src/extension.ts`. This will start a development window with the extension active.
+3. You can refresh the development window (from within the development window) with `Cmd + Shift + P` -> `Developer: Reload Window`.
 
 ## Packaging
 
