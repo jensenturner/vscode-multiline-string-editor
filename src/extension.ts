@@ -106,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   const disposable = vscode.commands.registerCommand(
-    "com.jensenturner.multiline-string-editor.editMultiline",
+    "jensenturner.multiline-string-editor.editMultiline",
     function () {
       // Get the active text editor
       const editor = vscode.window.activeTextEditor;
