@@ -78,15 +78,27 @@ export function activate(context: vscode.ExtensionContext) {
 
       console.log("saved:", td.getText());
       try {
-        const updated = td.getText().replace(/\n/g, "\\n");
-        console.log("updated:", updated);
+        // const updated = td.getText().replace(/\n/g, "\\n");
+        // console.log("updated:", updated);
 
-        const { range } = editContext;
+        // const { range } = editContext;
+        // editContext.editor.edit((editBuilder) => {
+        //   editBuilder.replace(range, updated);
+        // });
+        // vscode.commands.executeCommand("workbench.action.closeActiveEditor");
+        // memFs.delete(uri);
+
+        const jsonString = JSON.stringify(td.getText());
+        const updated = jsonString.substring(1, jsonString.length - 1);
+        console.log("updated:", updated);
+        const oldRange = editContext.range;
         editContext.editor.edit((editBuilder) => {
-          editBuilder.replace(range, updated);
+          editBuilder.replace(oldRange, updated);
         });
-        vscode.commands.executeCommand("workbench.action.closeActiveEditor");
-        memFs.delete(uri);
+        editContext.range = new vscode.Range(
+          oldRange.start,
+          oldRange.start.translate(0, updated.length),
+        ); 
       } catch (e) {
         vscode.window.showErrorMessage(`Syntax Error: "${e}"`);
       }
@@ -117,11 +129,13 @@ export function activate(context: vscode.ExtensionContext) {
       editContext.range = target.range;
 
       let content;
-      try {
-        content = target.body.replace(/\\n/g, "\n");
-      } catch (e) {
-        content = target.body.replace(/\\"/g, '"');
-      }
+      // try {
+      //   content = target.body.replace(/\\n/g, "\n");
+      // } catch (e) {
+      //   content = target.body.replace(/\\"/g, '"');
+      // }
+      content = JSON.parse('"' + target.body + '"').toString();
+
       memFs.writeFile(uri, Buffer.from(content), {
         create: true,
         overwrite: true,
