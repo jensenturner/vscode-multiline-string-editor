@@ -29,9 +29,4 @@ bun install
 
 ## Packaging
 
-1. [Install `vsce`](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce).
-2. Run `vsce package`.
-
-See the [packaging documentation](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions) for more information.
-
-You can then manually upload the packaged (`.vsix`) file to the VSCode Marketplace from https://marketplace.visualstudio.com/manage/publishers/<your-publisher>.
+1. After installing dependencies, run `bunx vsce package`.
