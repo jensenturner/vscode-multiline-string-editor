@@ -1,6 +1,6 @@
 {
   "name": "multiline-string-editor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "jensenturner",
   "repository": {
     "type": "git",
@@ -9,9 +9,9 @@
   "main": "./out/extension.js",
   "devDependencies": {
     "@types/node": "^24.0.3",
-    "typescript": "^5.8.3",
-    "vscode": "^1.1.37",
-    "@vscode/vsce": "^3.6.2"
+    "@types/vscode": "^1.100.0",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.8.3"
   },
   "categories": [
     "Other"
@@ -27,7 +27,7 @@
   "description": "Visual Studio Code extension for editing multiline strings (e.g., in JSON). Based on the Multiline String Editor extension by The Children's Hospital of Philadelphia at https://github.com/chop-dbhi/vscode-multiline-string-editor.",
   "displayName": "Multiline String Editor",
   "engines": {
-    "vscode": "^1.96.0"
+    "vscode": "^1.100.0"
   },
   "homepage": "https://github.com/jensenturner/vscode-multiline-string-editor/blob/master/README.md",
   "keywords": [
@@ -40,7 +40,8 @@
   "markdown": "github",
   "publisher": "jensenturner",
   "scripts": {
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "compile": "tsc",
+    "watch": "tsc -watch",
+    "package": "tsc && npx vsce package"
   }
 }

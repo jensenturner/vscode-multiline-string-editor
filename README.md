@@ -16,17 +16,42 @@ Easily edit multiline strings that need to be encoded as single-line strings (fo
 
 ## Developing
 
-1. Clone the repository, and install its dependencies:
+1. Clone the repo
 
 ```
 git clone <this repository>
 cd <this directory>
-bun install
 ```
 
-2. Run the VS Code command `Debug: Start Debugging` on `src/extension.ts`. This will start a development window with the extension active.
-3. You can refresh the development window (from within the development window) with `Cmd + Shift + P` -> `Developer: Reload Window`.
+2. Requires Node.js >= 24 and npm. Install on your machine or use the Brewfile as described below:
+
+```
+brew bundle # ensures Node is installed
+brew bundle sh # opens subshell with node, npm, etc. on $PATH
+```
+
+3. Install dependencies (just typescript and vscode)
+
+```
+npm install
+```
+
+4. Run the VS Code command `Debug: Start Debugging` on `src/extension.ts`. This will start a development window with the extension active.
+
+5. You can refresh the development window (from within the development window) with `Cmd + Shift + P` -> `Developer: Reload Window`.
 
 ## Packaging
 
-1. After installing dependencies, run `bunx vsce package`.
+1. After installing dependencies, run:
+
+```
+npm run package
+```
+
+## Installing
+
+1. After packaging, run:
+
+```
+code --install-extension ./multiline-string-editor-*.vsix
+```

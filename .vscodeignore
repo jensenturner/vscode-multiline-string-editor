@@ -9,6 +9,6 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 assets/**
-bun.lock
 README.md
 changelog.md
+Brewfile
