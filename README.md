@@ -2,6 +2,8 @@
 
 Easily edit multiline strings that need to be encoded as single-line strings (for example, JSON strings that contain literal `\n` characters).
 
+Based on https://github.com/chop-dbhi/vscode-multiline-string-editor/, with modifications to work correctly in Auto Save mode.
+
 ## How to Use
 
 ![how_to_use](./assets/how_to_use.gif)
